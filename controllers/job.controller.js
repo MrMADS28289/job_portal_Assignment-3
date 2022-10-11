@@ -1,4 +1,7 @@
-const { createJobService } = require("../services/job.service");
+const {
+    createJobService,
+    getJobsService
+} = require("../services/job.service");
 
 
 exports.createJob = async (req, res, next) => {
@@ -20,22 +23,22 @@ exports.createJob = async (req, res, next) => {
 }
 
 
-// exports.getBrands = async (req, res, next) => {
-//   try {
-//     const brands = await getBrandsService(req.body);
+exports.getJobs = async (req, res, next) => {
+    try {
+        const jobs = await getJobsService(req.body);
 
-//     res.status(200).json({
-//       status: "success",
-//       data: brands
-//     });
-//   } catch (error) {
-//     console.log(error);
-//     res.status(400).json({
-//       status: "fail",
-//       error: "Couldn't get the brands",
-//     });
-//   }
-// };
+        res.status(200).json({
+            status: "success",
+            data: jobs
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            status: "fail",
+            error: "Couldn't get the jobs",
+        });
+    }
+};
 
 // exports.getBrandById = async (req, res, next) => {
 //   const { id } = req.params;

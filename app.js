@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 });
 
 
-app.use("/api/v1/job", jobRoute);
+app.use("/api/v1/jobs", jobRoute);
 // app.use("/api/v1/brand", brandRoute);
 // app.use("/api/v1/category", categoryRoute);
 // app.use("/api/v1/store", storeRoute);

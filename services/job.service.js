@@ -6,10 +6,10 @@ exports.createJobService = async (data) => {
 }
 
 
-// exports.getBrandsService = async () => {
-//   const brands = await Brand.find({}).populate('products')
-//   return brands;
-// }
+exports.getJobsService = async () => {
+  const brands = await Job.find({})
+  return brands;
+}
 
 
 // exports.getBrandByIdService = async (id) => {
