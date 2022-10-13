@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
+const { ObjectId } = mongoose.Schema.Types;
 
 const JobSchema = mongoose.Schema({
 
@@ -49,6 +50,11 @@ const JobSchema = mongoose.Schema({
         },
 
         logo: String
+    },
+
+    hiringManager: {
+        type: ObjectId,
+        ref: "Manager"
     },
 
     employmentType: {
