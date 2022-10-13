@@ -1,9 +1,9 @@
 const {
     createJobService,
     getJobsService,
-    getJobByIdService
+    getJobByIdService,
+    updateJobService
 } = require("../services/job.service");
-
 
 exports.createJob = async (req, res, next) => {
     try {
@@ -22,7 +22,6 @@ exports.createJob = async (req, res, next) => {
         })
     }
 }
-
 
 exports.getJobs = async (req, res, next) => {
     try {
@@ -67,29 +66,30 @@ exports.getJobById = async (req, res, next) => {
     }
 };
 
-// exports.updateBrand = async (req, res, next) => {
-//   const { id } = req.params;
-//   try {
-//     const result = await updateBrandService(id, req.body);
+exports.updateJob = async (req, res, next) => {
+    const { id } = req.params;
 
-//     console.log(result);
+    try {
+        const result = await updateJobService(id, req.body);
+        console.log(result)
 
-//     if (!result.nModified) {
-//       return res.status(400).json({
-//         status: "fail",
-//         error: "Couldn't update the brand with this id",
-//       });
-//     }
+        if (!result.nModified) {
+            return res.status(400).json({
+                status: "fail",
+                error: "Couldn't update the job with this id",
+            });
+        }
 
-//     res.status(200).json({
-//       status: "success",
-//       message: "Successfully updated the brand"
-//     });
-//   } catch (error) {
-//     console.log(error);
-//     res.status(400).json({
-//       status: "fail",
-//       error: "Couldn't update the brand",
-//     });
-//   }
-// };
+        res.status(200).json({
+            status: "success",
+            message: "Successfully updated the job"
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            status: "fail",
+            error: "Couldn't update the job",
+        });
+    }
+};

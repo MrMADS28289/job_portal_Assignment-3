@@ -15,3 +15,11 @@ exports.getJobByIdService = async (id) => {
 
   return job;
 }
+
+exports.updateJobService = async (id, data) => {
+  const result = await Job.updateOne({ _id: id }, data, {
+    runValidators: true
+  });
+
+  return result;
+}
