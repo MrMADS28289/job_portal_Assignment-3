@@ -10,3 +10,8 @@ exports.getJobsService = async () => {
   return jobs;
 }
 
+exports.getJobByIdService = async (id) => {
+  const job = await Job.findOne({ _id: id })
+
+  return job;
+}

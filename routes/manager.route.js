@@ -1,15 +1,14 @@
 const express = require("express");
-const managerController = require("../controllers/manager.controller");
+const jobController = require("../controllers/job.controller");
 
 const router = express.Router();
 
 router.route("/")
-    .post(managerController.createManager)
-//     .get(supplierController.getSuppliers);
+    .get(jobController.getJobs);
 
-// router.route("/:id")
-//     .get(supplierController.getSupplierById)
-//     .patch(supplierController.updateSupplier);
+router.route("/:id")
+    .get(jobController.getJobById)
+// .patch(supplierController.updateSupplier);
 
 
 module.exports = router;

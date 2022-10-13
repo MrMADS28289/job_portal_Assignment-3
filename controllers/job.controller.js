@@ -1,6 +1,7 @@
 const {
     createJobService,
-    getJobsService
+    getJobsService,
+    getJobByIdService
 } = require("../services/job.service");
 
 
@@ -40,30 +41,31 @@ exports.getJobs = async (req, res, next) => {
     }
 };
 
-// exports.getBrandById = async (req, res, next) => {
-//   const { id } = req.params;
-//   try {
-//     const brand = await getBrandByIdService(id);
+exports.getJobById = async (req, res, next) => {
+    const { id } = req.params;
 
-//     if(!brand){
-//       return res.status(400).json({
-//         status: "fail",
-//         error: "Couldn't find a brand with this id"
-//       })
-//     }
+    try {
+        const job = await getJobByIdService(id);
 
-//     res.status(200).json({
-//       status: "success",
-//       data: brand,
-//     });
-//   } catch (error) {
-//     console.log(error);
-//     res.status(400).json({
-//       status: "fail",
-//       error: "Couldn't get the brands",
-//     });
-//   }
-// };
+        if (!job) {
+            return res.status(400).json({
+                status: "fail",
+                error: "Couldn't find a job with this id"
+            })
+        }
+
+        res.status(200).json({
+            status: "success",
+            data: job,
+        });
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({
+            status: "fail",
+            error: "Couldn't get the job",
+        });
+    }
+};
 
 // exports.updateBrand = async (req, res, next) => {
 //   const { id } = req.params;
