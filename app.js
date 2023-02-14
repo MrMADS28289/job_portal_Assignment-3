@@ -10,8 +10,8 @@ app.use(cors());
 
 
 //routes
-const jobRoute = require("./routes/job.route");
-const managerRoute = require("./routes/manager.route");
+// const jobRoute = require("./routes/job.route");
+// const managerRoute = require("./routes/manager.route");
 // const categoryRoute = require("./routes/category.route");
 // const storeRoute = require("./routes/store.route");
 // const supplierRoute = require("./routes/supplier.route");
@@ -23,8 +23,8 @@ app.get("/", (req, res) => {
 });
 
 
-app.use("/api/v1/jobs", jobRoute);
-app.use("/api/v1/manager/jobs", managerRoute);
+// app.use("/api/v1/jobs", jobRoute);
+// app.use("/api/v1/manager/jobs", managerRoute);
 // app.use("/api/v1/brand", brandRoute);
 // app.use("/api/v1/category", categoryRoute);
 // app.use("/api/v1/store", storeRoute);
