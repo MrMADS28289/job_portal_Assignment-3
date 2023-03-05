@@ -25,7 +25,7 @@ exports.createJob = async (req, res, next) => {
 
 exports.getJobs = async (req, res, next) => {
     try {
-        const jobs = await getJobsService(req.body);
+        const jobs = await getJobsService();
 
         res.status(200).json({
             status: "success",

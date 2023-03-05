@@ -9,6 +9,7 @@ router.route("/")
 
 router.route("/:id")
     .patch(jobController.updateJob)
+    .get(jobController.getJobById)
 
 
 module.exports = router;

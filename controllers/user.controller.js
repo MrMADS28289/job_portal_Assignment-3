@@ -77,7 +77,6 @@ exports.login = async (req, res) => {
 
 
 exports.getMe = async (req, res) => {
-    console.log(req);
     try {
         const user = await findUserByEmail(req.user?.email);
 
